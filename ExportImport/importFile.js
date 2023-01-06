@@ -10,8 +10,12 @@
 // export default name
 
 // CommonJS
-const {address} = require('./exportFile');
+// const {address} = require('./exportFile');
+
+// ES6 module
+import {name} from './exportFile.js'
+import userinfo from './user.js'
 
 // console.log('name is ',name);
-console.log('address is ',address);
+console.log('address is ',name);
 
