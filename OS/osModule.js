@@ -26,7 +26,7 @@ const uptime = osModule.uptime();
 console.log((uptime/3600)/24);
 */
 
-console.log(osModule.cpus());
-console.log(osModule.version());
+// console.log(osModule.cpus());
+// console.log(osModule.version());
 
 console.log(osModule.networkInterfaces());
