@@ -9,7 +9,7 @@ const options = {
 
 // http://localhost:4000/profile
 
-http.request('http://localhost:4000/profile?name=Abhinav&add=delhi', (res) => {
+http.request('http://localhost:4000/profile?name=Abhinav&content=sdvswdvcwefcwefcew', (res) => {
     console.log('request completed');
     // console.log(res);
     res.setEncoding('utf-8');
@@ -21,6 +21,7 @@ http.request('http://localhost:4000/profile?name=Abhinav&add=delhi', (res) => {
         // console.log('data', data);
     })
     res.on('end', () => {
+        console.log(resData);
         console.log('data ended');
     })
 })
