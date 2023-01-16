@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const queryString = require('querystring');
+const fs = require('fs');
 
 const server = http.createServer((request, response) => {
     // console.log(request.headers.host);
@@ -13,6 +14,14 @@ const server = http.createServer((request, response) => {
 
     const myParams = queryString.parse(parsedUrl.query);
     console.log('queryParams', myParams);
+
+    // fs.existsSync
+    fs.mkdir(`./Http/Users/${myParams.name}`, (err) => {
+        // handle the error
+    })
+    fs.appendFile(`./Http/Users/${myParams.name}/${myParams.name}.txt`, `${myParams.content}`, (err) => {
+        // handle the error
+    })
     
     if(request.url === '/'){
         // response.write('this is home page');
