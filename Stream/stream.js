@@ -21,14 +21,15 @@ fs.readFile('./Stream/file.txt', (err, file) => {
 })
 */
 
-// by default 
 const readableStream = fs.createReadStream('./Stream/file.txt');
 const writableStream = fs.createWriteStream('./Stream/FileCopy.txt')
 
-let i = 0
+let i = 0;
+
+// chunk size by default is 64 kb
 readableStream.on('data', (chunk) => {
     console.log(++i);
-    console.log(chunk);
+    console.log(chunk.length/1024);
     writableStream.write(chunk)
 })
 
