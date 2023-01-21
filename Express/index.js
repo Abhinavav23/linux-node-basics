@@ -2,6 +2,8 @@ const express = require('express');
 // console.log(express);
 const app = express();
 
+app.use(express.json())
+
 /*
 app.get('/', (req, res) => {
     // console.log(req.headers);
@@ -63,7 +65,7 @@ app.get('/products', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    res.send('<div>this is me</div>')
+    res.send('<h1>Default Page</h1>')
 })
 
 app.get('/products/:id', (req, res) => {
@@ -73,11 +75,60 @@ app.get('/products/:id', (req, res) => {
     if(product){
         res.send(product)
     } else{
-        res.send('Product not found!!')
+        res.send('Product not found!!');
     }
     console.log(product);
 })
 
+// we can send the data in body
+app.post('/products', (req, res) => {
+    console.log('post req received');
+    console.log(req.body);
+    productsList.push(req.body)
+    res.send(productsList)
+})
+
+// use to update the data 
+// which  element to update ---> through params
+// what to update ---> through body
+// we replace the whole content, hence you have to pass everything which has to be updated
+// if no element found put then will created an item
+app.put('/products/:id', (req, res) => {
+    console.log(req.params.id);
+    // const productToBeUpdated = productsList.find((product) => product.id === req.params.id);
+
+    productsList.forEach((product, i) => {
+        if(product.id === req.params.id){
+            productsList[i] = req.body
+        }
+    })
+    res.send(productsList)
+})
+
+// patch is also used to update the value
+// but we update whatever is needed
+// if no element found then will throw error
+
+app.patch('/products/:id', (req, res) => {
+    // patch code
+
+})
+
+app.delete('/products/:id', () => {
+    // find the product and delete it
+})
+
+
+// [1,2,3,4,5]
+// ---> 2nd index
+// --->
+
+
+
+// default route
+app.get('*', (req, res) => {
+    res.send('<h3>404 Path not found !!</h3>')
+})
 
 const PORT = 4050
 app.listen(PORT, () => {
@@ -99,3 +150,8 @@ app.listen(PORT, () => {
 
 // const a  = test()
 // a.get
+
+
+// fetch('http://flipkart.com', {
+//     method: 'POST'
+// })
