@@ -1,0 +1,39 @@
+{
+  "userList": [
+    {
+      "id": 1,
+      "username": "abhinav123",
+      "email": "abhinav123@mail",
+      "address": "india",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "username": "virat",
+      "email": "virat@mail",
+      "address": "india",
+      "password": "12345"
+    },
+    {
+      "id": 3,
+      "username": "Rohit",
+      "email": "Rohit@mail",
+      "address": "india",
+      "password": "12345"
+    },
+    {
+      "id": 4,
+      "username": "SKY",
+      "email": "sky@mail",
+      "address": "india",
+      "password": "12345"
+    },
+    {
+      "id": 5,
+      "username": "risabh",
+      "email": "risabh@mail",
+      "address": "india",
+      "password": "12345"
+    }
+  ]
+}

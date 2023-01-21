@@ -111,11 +111,27 @@ app.put('/products/:id', (req, res) => {
 
 app.patch('/products/:id', (req, res) => {
     // patch code
+    // find the element to be updated using id recieved from params
+    const productToBeUpdated = productsList.find((product) => product.id === req.params.id);
+    const updatedProduct = {...productToBeUpdated, ...req.body}
+    console.log('updatedProduct', updatedProduct);
+    // in the element which field need to be updated
+
+    productsList.forEach((product, i) => {
+        // find the product using id
+        if(product.id === req.params.id){
+            productsList[i] = {...product, ...req.body}
+        }
+    })
+
+    res.send('product updated');
 
 })
 
 app.delete('/products/:id', () => {
     // find the product and delete it
+    const filteredProductList = productsList.filter((product) => product.id !==req.params.id )
+    // 
 })
 
 
