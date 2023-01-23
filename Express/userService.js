@@ -4,6 +4,7 @@ const fs = require('fs');
 const app = express();
 app.use(express.json());
 
+/*
 app.post('/user', (req, res) => {
      // get the data from req.body
      console.log(req.body);
@@ -14,7 +15,6 @@ app.post('/user', (req, res) => {
     // update the data in the file 
     const userData = {id:data.userList.length+1 ,...req.body}
     data.userList.push(userData)
-    console.log(data);
 
     // write / save the data in json file 
     fs.writeFile('./data/userList.json', JSON.stringify(data, null, 2), (err) => {
@@ -25,6 +25,7 @@ app.post('/user', (req, res) => {
          // send the the response
         res.send('user created successfully')
     })
+    res.send('completed')
 })
 
 app.get('/user', (req, res) => {
@@ -40,6 +41,89 @@ app.put('/user/:id', (req, res) => {
 app.delete('/user/:id', (req, res) => {
     // to be completed
 })
+*/
+
+
+// will check if user is logged in
+
+const userList = [
+    {
+        username: 'Abhinav',
+        password: '12345',
+    },
+    {
+        username: 'Virat',
+        password: '123'
+    },
+    {
+        username: 'Rohit',
+        password: '12309'
+    }
+]
+
+const friendList = ['Abhinav', 'Friend1', 'friend2']
+
+const checkUsername = (req, res, next) => {
+    const {username, password} = req.body
+    console.log(req.body);
+    const user = userList.find((user) => user.username === username);
+    if(user){
+        if(user.password === password){
+            next()
+        } else{
+
+            res.send('password did not match !!')
+        }
+    }else{
+        res.send('User not found')
+    }
+}
+
+// const checkPassword = (req, res, next) => {
+//     const {username, password} = req.body
+//     console.log(req.body);
+//     const user = userList.find((user) => user.password === password);
+//     if(user){
+//         next()
+//     }else{
+//         res.send('password did not match')
+//     }
+// }
+
+const logResults = (req, res, next) => {
+    const {username} = req.body
+   fs.appendFile('./userLogs.txt',`\n${username} has logged in successfully`,(err) => {
+        if(err) console.log(err);
+        
+    }) 
+    next();
+}
+
+// default --> runs for all the routes
+// app.use(checkLogin);
+// app.use(logResults)
+
+// const friendsHandler = (req, res) => {
+//     console.log('inside friends callback');
+//     res.send('middleware running')
+// }
+
+app.post('/friends',checkUsername,logResults, (req, res) => {
+    console.log('inside friends callback');
+    res.send(friendList)
+})
+
+// app.post('/messages',checkUsername, (req, res) => {
+//     console.log('inside messages callback');
+//     res.send('reading messages')
+// })
+
+// app.get('/publicpage', (req, res) => {
+//     res.send('public page')
+// })
+
+
+
 
 const PORT = 5050
 app.listen(PORT, () => {
