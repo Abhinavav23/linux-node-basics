@@ -2,7 +2,8 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
-app.use(express.json());
+// app.use(express.json());
+app.use(express.urlencoded());
 
 /*
 app.post('/user', (req, res) => {
@@ -42,7 +43,6 @@ app.delete('/user/:id', (req, res) => {
     // to be completed
 })
 */
-
 
 // will check if user is logged in
 
@@ -111,6 +111,11 @@ const logResults = (req, res, next) => {
 app.post('/friends',checkUsername,logResults, (req, res) => {
     console.log('inside friends callback');
     res.send(friendList)
+})
+
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    res.send('Logged in successfully')
 })
 
 // app.post('/messages',checkUsername, (req, res) => {
