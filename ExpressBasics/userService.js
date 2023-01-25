@@ -26,7 +26,7 @@ app.post('/user', (req, res) => {
          // send the the response
         res.send('user created successfully')
     })
-    res.send('completed')
+    res.send('completed');
 })
 
 app.get('/user', (req, res) => {
