@@ -1,10 +1,9 @@
-const { saveProduct } = require("../models/productModel");
+const { save, deleteData, update, get } = require("../models/productModel");
 
-
-const productsList = ['test', 'test1']
 const getAllProducts = (req, res) => {
   console.log("getting all products");
-  res.send(productsList);
+  const products = get()
+  res.send(products);
 };
 
 const getProduct = (req, res) => {
@@ -15,9 +14,15 @@ const getProduct = (req, res) => {
 
 const createProduct = (req, res) => {
   console.log("creating product");
-  saveProduct(req.body);
-//   res.status(204);
-  res.send('created product');
+  const result = save(req.body);
+  if(result){
+    res.status(201);
+    res.send('created product');
+  } else{
+    res.status(504);
+    res.send('cant create product, please try again!');
+  }
+  // res.status(201).send('created product');
 };
 
 const updateProduct = (req, res) => {
@@ -29,10 +34,14 @@ const updateProduct = (req, res) => {
   res.send(productsList);
 };
 
+const editProduct = (req, res) => {
+  update(req.params.id, req.body)
+  res.send('product updated successfully')
+}
+
 const deleteProduct = (req, res) => {
-  // const filetredProduct = productsList.filter((product) =>  product.id !== req.params.id);
-  // productsList = filetredProduct
-  // res.send(filetredProduct)
+  deleteData(req.params.id);
+  res.send('product deleted successfully')
 };
 
 module.exports = {
@@ -41,6 +50,7 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  editProduct
 };
 
 

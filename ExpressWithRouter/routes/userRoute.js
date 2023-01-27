@@ -1,4 +1,5 @@
 const express = require('express');
+const { all } = require('./productRoutes');
 
 const router = express.Router();
 
@@ -27,6 +28,11 @@ router.post('/user', (req, res) => {
 
 module.exports = router
 
+
+// /login --> post
+// /signup --> post
+// /profile/usename
+// /user/all
 
 // let obj = {
 

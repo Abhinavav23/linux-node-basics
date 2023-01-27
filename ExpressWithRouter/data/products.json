@@ -1,52 +1,68 @@
-{
-   "productList": [
-      {
-         "id": 1,
-         "name": "watch",
-         "brand": "apple",
-         "price": 20000
-      },
-      {
-         "id": 2,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 3,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 4,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 5,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 6,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 7,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      },
-      {
-         "id": 8,
-         "name": "mobile",
-         "brand": "apple",
-         "price": 50000
-      }
-   ]
-}
+[
+   {
+      "id": 1,
+      "name": "watch",
+      "brand": "apple",
+      "price": 20000
+   },
+   {
+      "id": 2,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 3,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 4,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 5,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 6,
+      "name": "mobile",
+      "brand": "samsung",
+      "price": 37000
+   },
+   {
+      "id": 7,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 8,
+      "name": "mobile",
+      "brand": "apple",
+      "price": 50000
+   },
+   {
+      "id": 9,
+      "name": "mobile",
+      "brand": "samsung",
+      "price": 25000
+   },
+   {
+      "id": 10,
+      "name": "cloth",
+      "brand": "levis",
+      "price": 2500
+   },
+   {
+      "id": 11,
+      "name": "fridge",
+      "brand": "samsung",
+      "price": 25000
+   }
+]

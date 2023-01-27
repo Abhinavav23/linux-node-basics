@@ -7,7 +7,7 @@ const userRouter = require('./routes/userRoute');
 
 app.use(express.json());
 // http://localhost:5800/products
-app.use('/products', productRouter);
+app.use('/product', productRouter);
 // http://localhost:5800/user
 app.use('/user', userRouter)
 
