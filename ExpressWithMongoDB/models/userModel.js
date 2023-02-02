@@ -7,8 +7,11 @@ const userSchema = new Schema({
     email: String,
     password: String,
     mobile: Number,
-    role: String
-})
+    role: String,
+    score: Number,
+    batch: String,
+    gender: String,
+}, {versionKey: false})
 
 const User = mongoose.model("user", userSchema)
 

@@ -11,4 +11,3 @@ mongoose.connect('mongodb://localhost:27017', options)
 .catch((err) => {
     console.log(`Error Occurred: ${err.message}`);
 })
-
