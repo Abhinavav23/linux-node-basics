@@ -2,13 +2,12 @@ const express = require('express');
 const app = express();
 require('dotenv').config()
 
-require('./db/connectDatabase');
+require('./src/db/connectDatabase');
 
-const userRouter = require('./routes/userRoute');
+const userRouter = require('./src/routes/userRoute');
 app.use(express.json());
 app.use('/', userRouter);
 
-console.log(process.env);
 app.listen(process.env.PORT, () => {
     console.log(`Auth server running on ${process.env.PORT}`);
 })
