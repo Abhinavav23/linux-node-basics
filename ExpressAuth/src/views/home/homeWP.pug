@@ -1,0 +1,26 @@
+doctype html
+html(lang='en')
+    head
+        link(rel="stylesheet" href="home.css")
+        title Home Page using pug
+    body 
+        h1 Home Page
+        h3(class='product') Products
+        div.active#mobile Mobiles #{mobile}
+        div Cloth- #{cloth}
+        div App-- #{appliances}
+
+        br
+        //- creating a variable
+        -const name = 'Abhinav'
+         div My name is #{name}
+
+        //- creating an array
+        -const numbers = [1,4,7,23,56]
+        //- looping in array using each
+        each num in numbers
+            div= `number is ${num}`
+        br
+        //- looping in array using for
+        for num in numbers
+            div= `number is ${num}`
