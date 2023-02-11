@@ -1,5 +1,5 @@
 const User = require("../models/userModel");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const authUser = async (req, res, next) => {
   const { authorization } = req.headers;
@@ -10,15 +10,25 @@ const authUser = async (req, res, next) => {
     try {
       const userInfo = jwt.verify(token, process.env.JWT_SECRET);
       const user = await User.findById(userInfo.userId);
-      console.log('user', user);
-      req.user = user;
-      next();
+
+      const tokenIndex = user.tokens.findIndex(
+        (userToken) => userToken === token
+      );
+
+      if(tokenIndex === -1){
+        res.send('you have been logged out. please login again!!')
+      } else{
+        console.log("user", user);
+        req.user = user;
+        next();
+      }
+      
     } catch (err) {
-        console.log('error occureed -----> ');
+      console.log("error occureed -----> ");
       res.send({ Error: err });
     }
   } else {
-    console.log('error occureed -----> ');
+    console.log("error occureed -----> ");
     res.status(401).send("User is not authorized");
   }
 };

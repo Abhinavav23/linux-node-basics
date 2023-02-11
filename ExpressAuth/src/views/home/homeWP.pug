@@ -2,12 +2,16 @@ doctype html
 html(lang='en')
     head
         link(rel="stylesheet" href="home.css")
+        style. 
+            div{
+                //- color: blue;
+            }
         title Home Page using pug
     body 
         h1 Home Page
         h3(class='product') Products
         div.active#mobile Mobiles #{mobile}
-        div Cloth- #{cloth}
+        div(style={"color": "red"}) Cloth- #{cloth}
         div App-- #{appliances}
 
         br
@@ -22,5 +26,40 @@ html(lang='en')
             div= `number is ${num}`
         br
         //- looping in array using for
-        for num in numbers
-            div= `number is ${num}`
+        -const names = ['Rohit', 'virat', 'sky']
+        for x,i in names
+            div= `name is ${x} at index ${i}`
+        
+        br
+
+        //- looping in object with conditionals
+        -const userInfo = {username: 'Abhinav', add: 'India'}
+        each val,key in userInfo
+            if key === 'username'
+                h3= `user is ${val}`
+            if key === 'add'
+                h3= `address is ${val}`
+
+        br
+        //- if else conditionals
+        -const isloggedIn =true 
+        if isloggedIn && name==='Abhinav'
+            div welcome #{name}
+            div= `Welcome using literals ${name}`
+        else 
+            div Welcome user
+
+        //- switch cases
+        -const add = 'India'
+        case add
+            when 'India'
+                h1 Indian
+            when 'USA'
+                h1 American
+            default
+                h2 default
+
+        
+
+    script(src="../home.js") 
+
